@@ -155,12 +155,15 @@ nav.buttons a:hover {
   opacity: 0.9;
 }
 
+.visible {
+  opacity: 1;
+}
+
 .subpage {
   padding-left: 25px;
   padding-right: 25px;
   text-align: -webkit-left;
   text-align: left;
-  opacity: 1;
 }
 
 .banner {
