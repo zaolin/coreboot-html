@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<title>coreboot</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+</head>
+
+<body>
+
+	<video playsinline autoplay muted loop id="bgvid">
+		<source src="video.webm" type="video/webm">
+	</video>
+
+	<script>
+		var video = document.getElementById("bgvid");
+		var random = Math.floor((Math.random() * 98) + 1);
+		video.currentTime = random;
+		video.playbackRate = 0;
+
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-39825788-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+	<div class="content visible">
+		<center>
+			<p>
+				<img src="banner.svg" class="banner" alt="coreboot" />
+			</p>
+			<div class="subpage">
+				<p>
+					<center>
+						<h1>coreboot events calendar</h1>
+						<hr>
+						<form>
+							Select a time zone:
+							<select name="timezone" onchange="updateTimezone(this)">
+								<option value="Etc/GMT">UTC (no daylight savings)</option>
+								<optgroup label="America">
+									<option value="America/Los_Angeles">Los Angeles</option>
+									<option value="America/Denver">Denver</option>
+									<option value="America/Chicago">Chicago</option>
+									<option value="America/New_York">New York</option>
+									<option value="America/Sao_Paulo">São Paulo</option>
+								</optgroup>
+								<optgroup label="Europe">
+									<option value="Europe/London">London</option>
+									<option value="Europe/Paris">Paris</option>
+									<option value="Europe/Brussels">Brussels</option>
+									<option value="Europe/Amsterdam">Amsterdam</option>
+									<option value="Europe/Berlin">Berlin</option>
+								</optgroup>
+								<optgroup label="Asia">
+									<option value="Asia/Shanghai">Shanghai</option>
+									<option value="Asia/Tokyo">Tokyo</option>
+								</optgroup>
+								<optgroup label="Australia">
+									<option value="Australia/Sydney">Sydney</option>
+								</optgroup>
+							</select>
+						</form>
+						<span id="cal"></span>
+						<p>For questions about this calendar or requests to be added to change events, please contact:
+							<br> stefan, patrickg, zaolin or martinr</p>
+					</center>
+					<br>
+				</p>
+			</div>
+		</center>
+	</div>
+
+	<script type="text/javascript">
+		function doUpdateTZ(tz) {
+			var option = document.querySelector("option[value='" + tz + "']");
+
+			if (!option) {
+				// default value
+				tz = "America/Los_Angeles";
+				// now it really should exist in the option set above
+				option = document.querySelector("option[value='" + tz + "']");
+			}
+
+			option.selected = true;
+
+			if (localStorage)
+				localStorage.setItem("coreboot_calendar_tz", tz);
+
+			if (tz != "") {
+				tz = '&amp;ctz=' + tz;
+			}
+			document.getElementById("cal").innerHTML =
+				'<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showNav=0&amp;showTabs=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=6b1u8iq13jj8cp6kfokq4vlo20%40group.calendar.google.com&amp;color=%2342104A&amp;src=q05mc5l939lp746e0k7oibuqpo%40group.calendar.google.com&amp;color=%23691426' +
+				tz +
+				'" style="border-width:0" width="320" height="600" frameborder="0" scrolling="no"></iframe><iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=6b1u8iq13jj8cp6kfokq4vlo20%40group.calendar.google.com&amp;color=%232952A3&amp;src=q05mc5l939lp746e0k7oibuqpo%40group.calendar.google.com&amp;color=%23691426' +
+				tz + '" style="border-width:0" width="480" height="600" frameborder="0" scrolling="no"></iframe>';
+		}
+
+		myTZ = "";
+		if (localStorage && localStorage.getItem("coreboot_calendar_tz"))
+			myTZ = localStorage.getItem("coreboot_calendar_tz");
+
+		doUpdateTZ(myTZ);
+
+		function updateTimezone(selection) {
+			doUpdateTZ(selection.value);
+		}
+	</script>
+
+</body>
+
+</html>
