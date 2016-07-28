@@ -190,10 +190,14 @@ video#bgvid {
 
 @media screen and (max-device-width: 800px) {
   html {
-       background-color: #ffffff no-repeat center center fixed;
+    background-color: #ffffff no-repeat center center fixed;
   }
   #bgvid {
-      display: none;
+    display: none;
+  }
+  .content {
+    margin-top: 0px;
+    top: 0%;
   }
 }
 
