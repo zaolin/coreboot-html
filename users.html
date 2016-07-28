@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- Design taken from fwupd.org which is
+     Copyright (C) 2015 Richard Hughes <richard@hughsie.com>
+     Licensed under the GNU General Public License Version 2 -->
+<html>
+
+<head>
+<title>coreboot</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style.css" type="text/css" media="screen"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+</head>
+
+<body>
+<video playsinline autoplay muted loop poster="video.png" id="bgvid">
+    <source src="video.webm" type="video/webm">
+</video>
+<div class="content">
+<center>
+<p>
+<img src="banner.svg" class="banner" alt="coreboot" />
+</p>
+<div class="subpage">
+<h1>Introduction</h1>
+<p>
+coreboot is a replacement for your BIOS / UEFI with a strong focus on boot speed,
+security and flexibility. It is designed to boot your operating system in less than
+one second without any compromise to security, with no back doors, and without any
+cruft from the 80s.<br/>
+It was originally designed for large super computers with thousands of nodes, but
+it will run on your desktop, headless internet server, laptop, tablet or your favorite IOT device.
+</p>
+
+<h1>Why coreboot?</h1>
+
+<h2>Using Open Source Software</h2>
+<p>
+coreboot is built on the principles of Open Source Software. Many of the engineers working on coreboot have also worked on the Linux kernel. Instead of keeping improvements to one system a secret from all other vendors, in coreboot, these improvements are shared across the board, providing end users with a much better, much more stable firmware.
+
+<h2>Flexibility</h2>
+<p>
+With coreboot, you can add your boot splash screen in jpg format instead of messing around with BMP derivatives from the 70s. Or you can boot so fast that there's not even time to show a splash screen. You can get a serial console showing your boot log. Or you can show the boot log once your operating system is up and running.
+</p>
+<pre class="prettyprint">
+$ cbmem -c
+coreboot-4.1-a2a2655 romstage Thu Apr  2 15:11:14 PDT 2015 starting...
+PM1_STS:   8000
+PM1_EN:    0500
+PM1_CNT:   00001400
+TCO_STS:   0000 0000
+GPE0_STS:  080100f0 0000003d 001c200a 00010000
+GPE0_EN:   00000400 00000000 00000000 00012000
+GEN_PMCON: 0200 20a0 1809
+Previous Sleep State: S3
+CPU: Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz
+CPU: ID 306d4, Broadwell E0 or F0, ucode: 0000001d
+CPU: AES supported, TXT NOT supported, VT supported
+MCH: device id 1604 (rev 09) is Broadwell F0
+PCH: device id 9cc3 (rev 03) is Broadwell U Premium
+IGD: device id 1616 (rev 09) is Broadwell U GT2
+CPU: frequency set to 2200 MHz
+MLB: board version DVT
+SPD: index 12 (GPIO65=1 GPIO67=1 GPIO68=0 GPIO69=0)
+SPD: module type is LPDDR3
+SPD: module part is H9CCNNNBLTMLAR-NTM
+SPD: banks 8, ranks 2, rows 14, columns 11, density 4096 Mb
+SPD: device width 16 bits, bus width 64 bits
+SPD: module size is 4096 MB (per channel)
+[..]
+</pre>
+<p>
+And you can enjoy all the other cool features of coreboot that we didn't describe here yet.
+</p>
+<h2>Security</h2>
+<p>
+coreboot supports a secure boot process. Unlike UEFI's secure boot, coreboot does not attempt to lock the end user out of their machine, but instead provides rock solid protection from internet viruses, government trojans, and other scary stuff. coreboot's security has been audited by the world's top security analysts and is not based on security by obscurity (insert link to bios password stored in ACPI table) and no big show and air bubbles.
+</p>
+<p>
+Check out what security researchers have to say here and here.
+</p>
+
+<h2>Safety</h2>
+<p>
+coreboot engineers have worked on many safety critical software projects. The architecture of coreboot is designed to have an unbrickable update process. Updating firmware should be no more dangerous than installing your favorite app on your mobile phone.
+</p>
+
+<h1>How to get coreboot?</h1>
+<p>
+The easiest way to get coreboot is to purchase a system with coreboot pre-installed. You can get coreboot pre-installed on many systems out there:
+<ul>
+<li>The biggest deployment are Google's <a href="https://www.google.com/chromebook/">Chrome OS devices</a>.
+The <a href="https://on.google.com/hub/">OnHub</a> runs coreboot, as well as the <a href="https://pixel.google.com/">Pixel C</a> tablet.
+</li>
+<li>If you are looking for a system that runs without Binary firmware components, have a look at the <a href="http://libreboot.org/">LibreBoot project</a>, a coreboot distribution with a <a href="http://www.fsf.org/ryf">Freedom focus</a>.</li>Pre-installed hardware is offered by <a href="http://minifree.org/">Minifree Ltd</a>.
+<li>
+<li>Todd Weaver's <a href="https://puri.sm/">Purism</a> offers the Librem 13 and Librem15 laptops, designed to respect your freedom.
+</ul>
+</p>
+
+<h1>Community</h1>
+<p>
+The coreboot community has strong supporters providing help with getting coreboot on to your system.
+</p>
+<ul>
+<li><a href="https://johnlewis.ie/custom-chromebook-firmware/rom-download/">John Lewis</a> is providing pre-built images for ChromeBooks.</li>
+<li>Matt Devillier builds XXXX images.</li>
+</ul>
+
+</div>
+<p class="bborder"><a href="index.html">Go back to the main page</a></p>
+
+</body>
+</html>

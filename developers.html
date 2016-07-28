@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!-- Design taken from fwupd.org which is
+     Copyright (C) 2015 Richard Hughes <richard@hughsie.com>
+     Licensed under the GNU General Public License Version 2 -->
+<html>
+
+<head>
+<title>coreboot</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style.css" type="text/css" media="screen"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+</head>
+
+<body>
+<video playsinline autoplay muted loop poster="video.png" id="bgvid">
+    <source src="video.webm" type="video/webm">
+</video>
+<div class="content">
+<center>
+<p>
+<img src="banner.svg" class="banner" alt="coreboot" />
+</p>
+<div class="sub">
+<h1>Introduction</h1>
+<p>
+coreboot (formerly known as LinuxBIOS) believes in the principles of Open Source software.
+It borrows many well known concepts from other Open Source projects, like Kconfig, the Linux kernel coding style,
+a git repository, gerrit for code reviews.
+<br/>
+The coreboot community now has more than 150 contributors a year, and is backed by many corporations, such as Google, Intel, AMD, ...
+</p>
+<p>
+Traditional firmware development works with one-off shots for a given device. That is why you can still buy so many devices with buggy firmware. The bug was fixed a long time ago, just not in your copy of the tree. This won't happen to you with coreboot.
+</p>
+
+<h1>Architecture</h1>
+<p>
+coreboot has a multi stage architecture, which is described in this picture:
+</p>
+<img src="img/architecture.png" alt="architecture"/>
+
+<h2>Interfaces</h2>
+<p>
+The interfaces to the operating system are
+<ul>
+<li>coreboot table</li>
+<li>cbmem</li>
+<li>payload interface</li>
+</ul>
+</p>
+<p>
+coreboot is super flexible for your use case. You can use compatibility payloads like TianoCore, SeaBIOS or Grub2, use depthcharge if you are focussed on security, or write your very own.
+</p>
+</h2>
+
+<h2>Flash Layout</h2>
+<p>
+coreboot uses two conceptsw for storing information in flash: FMAP, which is roughly equivalent to a partition table, and CBFS, which is coreboot's flash filesystem.
+</p>
+
+<h2>Debugging</h2>
+<p>
+coreboot has excellent debugging and testing capabilities built in:
+</p>
+
+<h3>Code Coverage</h3>
+Look at this pretty picture that tells you which lines of code are actually executed
+
+<h3>Logs</h3>
+Logs can be produced on many different media: Serial console, USB debug, EM100 SPI, in memory, etc.
+
+<pre class="prettyprint">
+$ cbmem -c
+coreboot-a2a2655 romstage Thu Apr  2 15:11:14 PDT 2015 starting...
+PM1_STS:   8000
+PM1_EN:    0500
+PM1_CNT:   00001400
+TCO_STS:   0000 0000
+GPE0_STS:  080100f0 0000003d 001c200a 00010000
+GPE0_EN:   00000400 00000000 00000000 00012000
+GEN_PMCON: 0200 20a0 1809
+Previous Sleep State: S3
+CPU: Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz
+CPU: ID 306d4, Broadwell E0 or F0, ucode: 0000001d
+CPU: AES supported, TXT NOT supported, VT supported
+MCH: device id 1604 (rev 09) is Broadwell F0
+PCH: device id 9cc3 (rev 03) is Broadwell U Premium
+IGD: device id 1616 (rev 09) is Broadwell U GT2
+CPU: frequency set to 2200 MHz
+MLB: board version DVT
+SPD: index 12 (GPIO65=1 GPIO67=1 GPIO68=0 GPIO69=0)
+SPD: module type is LPDDR3
+SPD: module part is H9CCNNNBLTMLAR-NTM
+SPD: banks 8, ranks 2, rows 14, columns 11, density 4096 Mb
+SPD: device width 16 bits, bus width 64 bits
+SPD: module size is 4096 MB (per channel)
+[..]
+</pre>
+
+<h3>Time Stamps</h3>
+<p>
+The times when boot time did not matter on a device are over. They got stuck in EFI and main frame land.
+coreboot provides detailed timing information on where your boot time is spent.
+</p>
+<pre class="prettyprint">
+Timestamps:
+1: 100ms ...
+</pre>
+
+<h3>Event Logs</h3>
+<p>
+To debug an already deployed system and figure out what a user did to a system, coreboot provides an event log:
+</p>
+<pre>
+0 | 2015-11-09 16:47:56 | ACPI Wake | S3
+1 | 2015-11-09 16:47:56 | Wake Source | GPIO | 27
+2 | 2015-11-09 16:47:56 | EC Event | Key Pressed
+3 | 2015-11-09 16:49:09 | ACPI Enter | S3
+4 | 2015-11-09 16:50:20 | ACPI Wake | S3
+5 | 2015-11-09 16:50:20 | Wake Source | GPIO | 10
+6 | 2015-11-09 16:50:21 | ACPI Enter | S3
+7 | 2015-11-09 22:47:02 | ACPI Wake | S3
+8 | 2015-11-09 22:47:02 | Wake Source | GPIO | 27
+9 | 2015-11-09 22:47:02 | EC Event | Lid Open
+10 | 2015-11-09 22:55:35 | ACPI Enter | S3
+11 | 2015-11-09 22:57:05 | ACPI Wake | S3
+12 | 2015-11-09 22:57:05 | Wake Source | GPIO | 10
+13 | 2015-11-09 22:57:14 | ACPI Enter | S3
+14 | 2015-11-09 23:02:33 | ACPI Wake | S3
+</pre>
+
+
+<h1>Developer Tools</h1>
+
+
+<h2>Getting the code</h2>
+<p>
+The latest code is always available at <a href="https://review.coreboot.org/">our Git repo</a> or, if you are working for a company that is using coreboot for their products, you should base your work on the latest <a href="http://www.coreboot.org/Releases">release version of coreboot</a>. You can file <a href="https://tickets.coreboot.org">bugs or feature requests</a>.
+You can trivially get the code by doing:
+</p>
+<pre>
+$ git clone https:/...
+</pre>
+<p>
+Since firmware is making a lot of assumptions on how your toolchain is working, you need to install
+the coreboot reference toolchain by doing
+</p>
+<pre>
+$ cd util/crossgcc
+$ make all
+</pre>
+
+<h2>Submitting Patches</h2>
+Patches can be submitted through <a href="http://review.coreboot.org/">Gerrit</a>.
+
+<h2>Releases</h2>
+<p>
+coreboot has a 3 month release cycle. With every release there will be a ChangeLog and a howto that expains how to bring your mainboard or chipset forward from the previous version.
+</p>
+
+<h2>Working with Hardware</h2>
+<p>We carefully selected a list of hardware tools that will make dealing with coreboot a lot easier. Part of the process of choosing this hardware is that it either works with open source utilities, or we write Open Source utilities for it. These utilities make it easy to build and deploy coreboot in automated environments.</p>
+<h3>Flashrom</h3>
+<p>Yadda</p>
+
+<h3>EM100</h3>
+<p>Yadda</p>
+
+<h3>Servo</h3>
+<p>Yadda</p>
+
+<h2>Working with People</h2>
+<p>
+You will find our <a href="Code_of_Conduct">Code of Conduct</a> useful information. Also have a look at X, Y and Z.
+</p>
+
+<h1>Verified Boot</h1>
+<p>
+coreboot supports a verified boot process which will let you roll out signed firmware updates.
+In order to produce a signed firmware, you have to do X
+</p>
+<h3>Using Your Own Key</h3>
+<p>Here is how you set up your own set of keys</p>
+<p>
+In particular, private keys should <b>only</b> be kept on Hardware Security
+Mechanisms, and used on machines (or virtual machine) that have limited network
+access, or networking completely disabled.
+The machine and any backups also need to be kept physically secure.
+</p>
+</div>
+<p class="bborder"><a href="index.html">Go back to the main page</a></p>
+</body>
+</html>
