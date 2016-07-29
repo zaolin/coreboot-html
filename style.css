@@ -122,12 +122,12 @@ nav.buttons a:hover {
     background-color: #ffffff;
     display: block;
     position: absolute;
-    width: 1250px;
+    width: 1200px;
     height: inherit;
     top: 50%;
     left: 50%;
-    margin-left: -625px;
-    margin-top: -370px;
+    margin-left: -600px;
+    margin-top: -350px;
     border-radius: 8px 8px 5px 5px;
     opacity: 0.9;
 }
@@ -170,23 +170,15 @@ nav.buttons a:hover {
     background: rgba(0, 0, 0, 0.5);
 }
 .content-background {
-    display: block;
     position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -100px;
-    top: 0;
-    left: 0;
-    background-image: url(img/image-2034.png);
-}
-.background {
-    position: absolute;
     top: 0px;
     left: 0px;
-    width: 100%;
-    height: 400px;
-    z-index: -100;
-    background-image: url(img/image-243.png);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -99;
+    background-image: url(img/image-2034.png);
 }
 video#bgvid {
     position: fixed;
@@ -202,17 +194,29 @@ video#bgvid {
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
 }
-@media screen and (max-device-width: 800px) {
+@media screen and (max-device-width: 850px) {
     html {
         background-color: #ffffff no-repeat center center fixed;
     }
     #bgvid {
         display: none;
     }
+    .content-background {
+        display: none;
+    }
     .content {
         margin-top: 0px;
         top: 0%;
         opacity: 1;
+    }
+    .video-wrapper {
+        display: none;
+    }
+}
+@media screen and (max-device-width: 1300px) {
+    .content {
+        width: 850px;
+        margin-left: -425px;
     }
 }
 #users {
