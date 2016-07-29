@@ -12,16 +12,7 @@
 
 <body>
 
-	<video playsinline autoplay muted loop id="bgvid">
-		<source src="video.webm" type="video/webm">
-	</video>
-
 	<script>
-		var video = document.getElementById("bgvid");
-		var random = Math.floor((Math.random() * 98) + 1);
-		video.currentTime = random;
-		video.playbackRate = 0;
-
 		(function(i, s, o, g, r, a, m) {
 			i['GoogleAnalyticsObject'] = r;
 			i[r] = i[r] || function() {
@@ -37,19 +28,20 @@
 		ga('send', 'pageview');
 	</script>
 
+	<div class="content-background" style="background-image: url(img/image-1944.png);"></div>
 	<div class="content visible">
 		<center>
 			<p>
-				<img src="banner.svg" class="banner" alt="coreboot" />
+				<img src="banner.svg" class="banner-subpage" alt="coreboot" />
 			</p>
 			<div class="subpage">
 				<p>
 					<center>
 						<h1>coreboot events calendar</h1>
-						<hr>
+						<div class="border-subpage"></div>
 						<form>
-							Select a time zone:
-							<select name="timezone" onchange="updateTimezone(this)">
+							<b>Select a time zone:</b>
+							<select name="timezone" onchange="updateTimezone(this)" style="margin-bottom: 15px;">
 								<option value="Etc/GMT">UTC (no daylight savings)</option>
 								<optgroup label="America">
 									<option value="America/Los_Angeles">Los Angeles</option>
@@ -107,8 +99,8 @@
 			document.getElementById("cal").innerHTML =
 				'<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showNav=0&amp;showTabs=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=6b1u8iq13jj8cp6kfokq4vlo20%40group.calendar.google.com&amp;color=%2342104A&amp;src=q05mc5l939lp746e0k7oibuqpo%40group.calendar.google.com&amp;color=%23691426' +
 				tz +
-				'" style="border-width:0" width="320" height="600" frameborder="0" scrolling="no"></iframe><iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=6b1u8iq13jj8cp6kfokq4vlo20%40group.calendar.google.com&amp;color=%232952A3&amp;src=q05mc5l939lp746e0k7oibuqpo%40group.calendar.google.com&amp;color=%23691426' +
-				tz + '" style="border-width:0" width="480" height="600" frameborder="0" scrolling="no"></iframe>';
+				'" style="border-width:0" width="30%" height="1000px" frameborder="0" scrolling="no"></iframe><iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=6b1u8iq13jj8cp6kfokq4vlo20%40group.calendar.google.com&amp;color=%232952A3&amp;src=q05mc5l939lp746e0k7oibuqpo%40group.calendar.google.com&amp;color=%23691426' +
+				tz + '" style="border-width:0" width="70%" height="1000px" frameborder="0" scrolling="no"></iframe>';
 		}
 
 		myTZ = "";

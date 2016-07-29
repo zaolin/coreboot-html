@@ -12,16 +12,7 @@
 
 <body>
 
-	<video playsinline autoplay muted loop id="bgvid">
-		<source src="video.webm" type="video/webm">
-	</video>
-
 	<script>
-		var video = document.getElementById("bgvid");
-		var random = Math.floor((Math.random() * 98) + 1);
-		video.currentTime = random;
-		video.playbackRate = 0;
-
 		(function(i, s, o, g, r, a, m) {
 			i['GoogleAnalyticsObject'] = r;
 			i[r] = i[r] || function() {
@@ -37,15 +28,16 @@
 		ga('send', 'pageview');
 	</script>
 
+	<div class="content-background" style="background-image: url(img/image-1502.png);"></div>
 	<div class="content visible">
 		<center>
 			<p>
-				<img src="banner.svg" class="banner" alt="coreboot" />
+				<img src="banner.svg" class="banner-subpage" alt="coreboot" />
 			</p>
 			<div class="subpage">
 				<center>
 					<h1>consulting services</h1>
-					<hr>
+					<div class="border-subpage"></div>
 					<h3>Please contact one of these licensed providers for quality coreboot consulting services</h3>
 					<table>
 						<tr>
@@ -101,11 +93,11 @@
 								</center>
 							</td>
 							<td>
-								<br> <b>SysPro</b> Consulting has been providing low-level software and firmware development services since 2001 to a wide variety of clientele, ranging from one-man startup companies to large international corporations such as Microsoft and Intel. Our services
-								include the development of device drivers, embedded systems, operating system internals, real-time control systems, BIOS and boot loaders, etc. for industrial, commercial, military, and consumer applications. Specifically related to coreboot,
-								SysPro Consulting provided consulting services to Intel for nearly 3 years, working directly with the Intel® Firmware Support Package (Intel® FSP) team within the Intel IoT organization, helping Intel’s customers enable coreboot bootloader solutions
-								based around the Intel® FSP on their custom embedded hardware designs. Since completing that work for Intel, SysPro Consulting has been continuing to engage with a number of Intel customers directly to help them develop custom coreboot-based boot
-								loader solutions for their own hardware designs.
+								<br> <b>SysPro</b> Consulting has been providing low-level software and firmware development services since 2001 to a wide variety of clientele, ranging from one-man startup companies to large international corporations such as Microsoft and Intel.
+								Our services include the development of device drivers, embedded systems, operating system internals, real-time control systems, BIOS and boot loaders, etc. for industrial, commercial, military, and consumer applications. Specifically related
+								to coreboot, SysPro Consulting provided consulting services to Intel for nearly 3 years, working directly with the Intel® Firmware Support Package (Intel® FSP) team within the Intel IoT organization, helping Intel’s customers enable coreboot bootloader
+								solutions based around the Intel® FSP on their custom embedded hardware designs. Since completing that work for Intel, SysPro Consulting has been continuing to engage with a number of Intel customers directly to help them develop custom coreboot-based
+								boot loader solutions for their own hardware designs.
 							</td>
 						</tr>
 						<tr>
@@ -118,9 +110,9 @@
 								</center>
 							</td>
 							<td>
-								<br> <b>Eltan</b> is an engineering company providing solutions for the x86 market for 18 years with experienced engineers in this market since the start of this industry, over 30 years ago. Our team provides hardware, firmware and OS support to our customers
-								to ensure the products will go to market with the highest quality available. Our customers are serving many different markets like automotive, rail, aviation, industrial automation, medical, public audio, video, broadcasting, vending, gambling,
-								security, consumer etc. We are used to provide support to customers worldwide.
+								<br> <b>Eltan</b> is an engineering company providing solutions for the x86 market for 18 years with experienced engineers in this market since the start of this industry, over 30 years ago. Our team provides hardware, firmware and OS support to our
+								customers to ensure the products will go to market with the highest quality available. Our customers are serving many different markets like automotive, rail, aviation, industrial automation, medical, public audio, video, broadcasting, vending,
+								gambling, security, consumer etc. We are used to provide support to customers worldwide.
 								<p>
 									Our customers get a direct named engineering contact to ensure fast and cost effective development with results. For high quality, fast and competitive support please visit <a href="http://www.eltan.com">www.Eltan.com</a>
 							</td>
