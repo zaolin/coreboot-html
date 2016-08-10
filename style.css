@@ -226,6 +226,40 @@ video#bgvid {
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
 }
+.nice-table {
+  width: 80%;
+  text-align: left;
+  background-color: #147;
+  border-collapse: collapse;
+  font-size: 1em;
+  font-weight: bold;
+}
+.nice-table th {
+  background-color: #000147;
+  color: white;
+}
+.nice-table td,
+.nice-table th {
+  padding: 10px;
+  border: 1px solid #000147;
+}
+.nice-table td#column1 {
+
+}
+.nice-table td#column2 {
+
+}
+.nice-table td#column3 {
+
+}
+.nice-table td#column4,
+.nice-table td#column4 a,
+.nice-table td#column5,
+.nice-table td#column5 a {
+  text-align: right;
+  color: #848484;
+  text-decoration: none;
+}
 @media screen and (max-device-width: 850px) {
     html {
         background-color: #ffffff no-repeat center center fixed;
