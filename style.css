@@ -8,6 +8,7 @@ h1, h2, h3 {
     color: #000000;
     font-family: "Open Sans", Sans-Serif;
     font-weight: 300;
+    margin-bottom: 0;
 }
 table.noteinformation {
     background: #f5f5ff;
@@ -44,7 +45,6 @@ p.title {
 p.caption {
     color: #000000;
     text-align: center;
-    font-style: italic;
 }
 th {
     color: #000000;
@@ -115,22 +115,7 @@ td.title {
     cursor: pointer;
     display: inline-block;
     position: relative;
-    transition: 0.2s;
-}
-.button span:after {
-    content: '✔️';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -5px;
-    transition: 0.2s;
-}
-.button:hover span {
-    padding-right: 20px;
-}
-.button:hover span:after {
-    opacity: 1;
-    right: 0;
+    transition: 0.4s;
 }
 nav.buttons {
     width: 100%;
@@ -139,17 +124,12 @@ nav.buttons {
 nav.buttons a {
     outline: none;
     display: inline-block;
-    padding: 140px 4px 10px 4px;
     width: 30%;
     background-repeat: no-repeat;
     background-position: center 30%;
-    background-size: 100px;
     margin: 0;
     text-align: center;
     transition: background-size 200ms ease;
-}
-nav.buttons a:hover {
-    background-size: 120px;
 }
 .bborder {
     width: 43%;
@@ -165,7 +145,7 @@ nav.buttons a:hover {
     left: 50%;
     margin-left: -600px;
     margin-top: -350px;
-    border-radius: 8px 8px 5px 5px;
+    border-radius: 8px 8px 8px 8px;
     opacity: 0.9;
 }
 .visible {
@@ -217,6 +197,21 @@ nav.buttons a:hover {
     background-size: cover;
     background-image: url(img/image-2034.jpg);
 }
+.content-background#background-1 {
+    background-image: url(assets/images/background-1.jpg);
+}
+.content-background#background-2 {
+    background-image: url(assets/images/background-2.jpg);
+}
+.content-background#background-3 {
+    background-image: url(assets/images/background-3.jpg);
+}
+.content-background#background-4 {
+    background-image: url(assets/images/background-4.jpg);
+}
+.content-background#background-5 {
+    background-image: url(assets/images/background-5.jpg);
+}
 video#bgvid {
     position: fixed;
     top: 50%;
@@ -249,6 +244,21 @@ video#bgvid {
     .video-wrapper {
         display: none;
     }
+    nav.buttons a {
+        display: inline-block;
+        width: 40%;
+        background-size: 160px;
+        padding: 200px 0px 0px 0px;
+    }
+    nav.buttons a:hover {
+        background-size: 180px;
+    }
+    p {
+      font-size: 2em;
+    }
+    h1 {
+      font-size: 3em;
+    }
 }
 @media screen and (max-device-width: 1300px) {
     .content {
@@ -257,11 +267,26 @@ video#bgvid {
     }
 }
 #users {
-    background-image: url('img/nav-users.svg');
+    background-image: url('assets/images/end_user_button.svg');
+    background-size: 100px;
+    padding: 155px 4px 0px 4px;
+}
+#users:hover {
+    background-size: 120px;
 }
 #devs {
-    background-image: url('img/nav-devs.svg');
+    background-image: url('assets/images/developer_button.svg');
+    background-size: 140px;
+    padding: 135px 4px 0px 4px;
+}
+#devs:hover {
+    background-size: 175px;
 }
 #hw {
-    background-image: url('img/nav-hw.svg');
+    background-image: url('assets/images/oem_button.svg');
+    background-size: 140px;
+    padding: 135px 4px 0px 4px;
+}
+#hw:hover {
+    background-size: 175px;
 }
