@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
     <title>coreboot</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
-    <link rel="shortcut icon" href="favicon.ico" />
-    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.rawgit.com/google/code-prettify/master/loader/prettify.css; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline'">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8; X-Content-Type-Options=nosniff; X-Frame-Options=SAMEORIGIN" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <script src="js/run_prettify.js"></script>
     <script src="js/min.js"></script>
 </head>
 
@@ -20,6 +23,75 @@
                 <div class="border-subpage"></div>
             </p>
             <div class="subpage">
+                <h1>Getting started</h1>
+                <p>Coreboot provides a fast, reliable, secure, and predictable boot firmware solution for numerous modern and legacy chipsets. Users are running millions of coreboot based devices like Google Chromebooks and Chromeboxes, and it runs in many
+                    datacenters. In 2016, coreboot.org has over 300 active developers and 60000 lines of code added each quarter.</p>
+
+                <h1>Advantages</h1>
+                <p>Using coreboot has numerous advantages and sure there are disadvantages..
+
+                    <h3>Extreme fast</h3>
+                    <ul>
+                        <li>It is designed to do the minimum amount necessary, and get out of the way.</li>
+                        <li>Especially for servers coreboot provides faster boot up.</li>
+                        <li>Desktop and Notebooks boot up in 400ms - 2.5s.</li>
+                        <li>Server boot up with 256gb of RAM in 5 minutes.</li>
+                    </ul>
+
+                    <h3>Flexible and customizable</h3>
+                    <ul>
+                        <li>Because coreboot does hardware init, then jumps to a payload to continue, it is very flexible.</li>
+                        <li>Payload support for everything which is a ELF binary. Feel free to ship your own payload !</li>
+                        <li>The core of coreboot is GPLv2 licensed. Payloads can be proprietary and we offer a BSD licensed support library.</li>
+                        <li>Coreboot provides different <i>ready to build in</i> payloads like UEFI, SeaBIOS, U-Boot, Grub2 and many more..</li>
+                    </ul>
+
+                    <h3>Made with safety in mind</h3>
+                    <ul>
+                        <li>Recovery Mode based on multiple copies of the firmware which can be updated independently.</li>
+                        <li>Integrity of stages and binaries in coreboot can be easily verified.</li>
+                    </ul>
+
+                    <h3>Designed for security by default</h3>
+                    <ul>
+                        <li>Uses a minimal trusted computing base for each platform which is easily auditable, helping to guarantee security.</li>
+                        <li>As coreboot is Open Source, anyone can check the codebase.</li>
+                        <li>The simpler structure of coreboot cuts down on the number of paths through the code, and the number of bugs.</li>
+                        <li>After it has completed initialization, more than 99% of the code is removed from memory.</li>
+                        <li>Platform security features are supported like IOMMU, flash protections, TEE and more..</li>
+                        <li>Coreboot comes with Secure Boot support called VBOOT2.</li>
+                    </ul>
+
+                    <h3>Debugging done easily</h3>
+                    <ul>
+                        <li>There are multiple ways to extract the boot log, from classic serial, to EHCI debug, even over the pc-speaker.</li>
+                        <li>Using the partner-project Serialice, software debug is available from just after the reset vector.</li>
+                        <li>GDB Stub support via serial.</li>
+                        <li>In memory console log support</li>
+                        <li>Tracing functions and other exotic features as well supported.</li>
+                    </ul>
+
+                    <h3>Saves costs and time</h3>
+                    <ul>
+                        <li>Unlike UEFI EDK2, it includes full platform support for different architectures and SoC vendors.</li>
+                        <li>Unlike U-Boot, coreboot strongly encourages a single source tree model,
+                            <br>making it easier to adapt feature development to different boards and chipsets.</li>
+                        <li>X86, ARM/64, MIPS, POWER8 and RISC-V are supported architectures.</li>
+                        <li>It works with operating systems like Windows, OS X, Linux and Android out of the box.</li>
+                        <li>Supported and maintained code for Intel FSP and AMD AGESA platforms.</li>
+                        <li>Porting new hardware on an existing chipset to coreboot can done extremely quickly within less than 1 week.</li>
+                    </ul>
+
+                    <h3>Quality assurance</h3>
+                    <ul>
+                        <li>All changes to the code are peer reviewed, so that the high quality requirements are fulfilled. Additionally, changes are build and run tested.</li>
+                        <li>There are test frameworks like REACTS or LAVA to hook up your device and perform automated testing.</li>
+                    </ul>
+
+                    <h1>Need help with coreboot ?!</h1>
+                    <p>If you are not employing your own firmware engineers you can contact one of our many licensed <a href="consulting.html">coreboot contractors</a>. Additional help is available through the extensive documentation on coreboot processes
+                        and an active online community, both in IRC and the mailing list.</p>
+
             </div>
             <p class="bborder"><a href="index.html">Go back to the main page</a></p>
     </div>

@@ -3,11 +3,12 @@
 
 <head>
     <title>coreboot</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
-    <link rel="shortcut icon" href="favicon.ico" />
-    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline'">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8; X-Content-Type-Options=nosniff; X-Frame-Options=SAMEORIGIN" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
     <script src="js/min.js"></script>
 </head>
 
@@ -20,54 +21,101 @@
                 <img src="assets/images/banner.svg" class="banner-subpage" alt="coreboot" />
             </p>
             <div class="subpage">
-                <center>
-                    <h1>Releases and Git</h1>
-                    <div class="border-subpage"></div>
-                    <table class="nice-table">
-                        <tr>
-                            <th>Name</th>
-                            <th>Release</th>
-                            <th>Date</th>
-                            <th>Sources</th>
-                            <th>GPG Signature</th>
-                        </tr>
-                        <tr>
-                            <td id="column1">Coreboot</td>
-                            <td id="column2">4.1</td>
-                            <td id="column3">13. July 2015</td>
-                            <td id="column4"><a href="//coreboot.org/releases/coreboot-4.1.tar.xz">Download Link</a></td>
-                            <td id="column4"><a href="//coreboot.org/releases/coreboot-4.1.tar.xz.sig">Download Link</a></td>
-                        </tr>
-                        <tr>
-                            <td id="column1">Coreboot</td>
-                            <td id="column2">4.2</td>
-                            <td id="column3">30. October 2015</td>
-                            <td id="column4"><a href="//coreboot.org/releases/coreboot-4.2.tar.xz">Download Link</a></td>
-                            <td id="column4"><a href="//coreboot.org/releases/coreboot-4.2.tar.xz.sig">Download Link</a></td>
-                        </tr>
-                        <tr>
-                            <td id="column1">Coreboot</td>
-                            <td id="column2">4.3</td>
-                            <td id="column3">29. Januar 2016</td>
-                            <td id="column4"><a href="//coreboot.org/releases/coreboot-4.3.tar.xz">Download Link</a></td>
-                            <td id="column4"><a href="//coreboot.org/releases/coreboot-4.3.tar.xz.sig">Download Link</a></td>
-                        </tr>
-                        <tr>
-                            <td id="column1">Coreboot</td>
-                            <td id="column2">4.4</td>
-                            <td id="column3">01. May 2016</td>
-                            <td id="column4"><a href="//coreboot.org/releases/coreboot-4.4.tar.xz">Download Link</a></td>
-                            <td id="column4"><a href="//coreboot.org/releases/coreboot-4.4.tar.xz.sig">Download Link</a></td>
-                        </tr>
-                        <tr>
-                            <td id="column1">Coreboot</td>
-                            <td id="column2">4.5</td>
-                            <td id="column3" style="font-style: italic;">Planned for 01. November 2016</td>
-                            <td id="column4">--</td>
-                            <td id="column4">--</td>
-                        </tr>
-                    </table>
-                </center>
+                <div class="border-subpage"></div>
+                <h1>Releases</h1>
+                <p>
+                    <center>
+                        <table class="nice-table">
+                            <tr>
+                                <th>Name</th>
+                                <th>Release</th>
+                                <th>Date</th>
+                                <th>Source</th>
+                                <th>GPG</th>
+                                <th>Blobs</th>
+                                <th>GPG</th>
+                            </tr>
+                            <tr>
+                                <td id="column1">Coreboot</td>
+                                <td id="column2">4.1</td>
+                                <td id="column3">13. July 2015</td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-4.1.tar.xz"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-4.1.tar.xz.sig"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-blobs-4.1.tar.xz"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-blobs-4.1.tar.xz.sig"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="column1">Coreboot</td>
+                                <td id="column2">4.2</td>
+                                <td id="column3">30. October 2015</td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-4.2.tar.xz"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-4.2.tar.xz.sig"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-blobs-4.2.tar.xz"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-blobs-4.2.tar.xz.sig"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="column1">Coreboot</td>
+                                <td id="column2">4.3</td>
+                                <td id="column3">29. Januar 2016</td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-4.3.tar.xz"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-4.3.tar.xz.sig"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-blobs-4.3.tar.xz"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-blobs-4.3.tar.xz.sig"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="column1">Coreboot</td>
+                                <td id="column2">4.4</td>
+                                <td id="column3">01. May 2016</td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-4.4.tar.xz"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-4.4.tar.xz.sig"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-blobs-4.4.tar.xz"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                                <td id="column4">
+                                    <a href="//coreboot.org/releases/coreboot-blobs-4.4.tar.xz.sig"><img src="assets/images/download.svg" height="30" width="30"></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="column1">Coreboot</td>
+                                <td id="column2">4.5</td>
+                                <td id="column3" style="font-style: italic;">Planned for 01. November 2016</td>
+                                <td id="column4">--</td>
+                                <td id="column4">--</td>
+                                <td id="column4">--</td>
+                                <td id="column4">--</td>
+                            </tr>
+                        </table>
+                    </center>
+                </p>
+                <p>Coreboot releases are done every half year. Please note that we wont switch to monthly releases because of the workload doing a release. Normally for Open Source projects it's common to do releases for example every 2 weeks but the mass of incoming patches and too less developers leads to this common release cycle. So in general this releases are done for OEM/ODM's and other companies doing business with coreboot. If you are a developer and end user we recommaned to use the master of the coreboot repository.</p>
             </div>
             <p class="bborder"><a href="index.html">Go back to the main page</a></p>
     </div>
